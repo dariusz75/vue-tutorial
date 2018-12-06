@@ -6,14 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue Tutorial</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <div id="app" v-cloak>
+      <h1>{{ heading }}</h1>
+      <p>{{ paragraph }}</p>
+    </div>
+  </div>
 
-  <script>
 
-  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
+
+<!--
+Dyrektywa v-cloak uzyta w divie id="app" sluzy do ukrywania kodu i nie wyswietlania go w przegladarce
+dopoki Vue nie zostanie zaladowany.
+W tym celu w css atrybut v-cloak dostal wlasciwosc display: none i nie wyswietla na starcie zawartosci diva id="app".
+po zaladowaniu strony atrybut zostaje usuniety a zawartosc wyswietlona na stronie. 
+-->
