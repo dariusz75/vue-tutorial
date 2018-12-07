@@ -22,7 +22,16 @@
       <h1>{{ heading }}</h1>
       <h2 v-html="bolder(fullName)"></h2>
       <p>{{ toUpperCase(paragraph) }}</p>
-
+      <ul>
+        <li>
+          <a v-bind:href="url1">{{ url1 }}</a>
+        </li>
+        <li>
+          <a :href="url2">{{ url2 }}</a>
+        </li>
+      </ul>
+      
+      
     </div>
   </div>
 
