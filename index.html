@@ -20,18 +20,10 @@
   <div class="container">
     <div id="app" v-cloak>
       <h1>{{ heading }}</h1>
-      <h2 v-html="bolder(fullName)"></h2>
-      <p>{{ toUpperCase(paragraph) }}</p>
-      <ul>
-        <li>
-          <a v-bind:href="url1">{{ url1 }}</a>
-        </li>
-        <li>
-          <a :href="url2">{{ url2 }}</a>
-        </li>
-      </ul>
-      
-      
+      <p>{{ paragraph }} {{ counter }}</p>
+      <button type="button" class="btn btn-info" v-on:click="decrement">-</button>
+      <button type="button" class="btn btn-info" @click="increment">+</button>
+      <button type="button" class="btn btn-danger" @click="reset" :disabled="counter === 0">Reset</button>
     </div>
   </div>
 
@@ -50,8 +42,9 @@
 </html>
 
 <!--
-Dyrektywa v-cloak uzyta w divie id="app" sluzy do ukrywania kodu i nie wyswietlania go w przegladarce
-dopoki Vue nie zostanie zaladowany.
-W tym celu w css atrybut v-cloak dostal wlasciwosc display: none i nie wyswietla na starcie zawartosci diva id="app".
-po zaladowaniu strony atrybut zostaje usuniety a zawartosc wyswietlona na stronie. 
+Powyzsze przyklady pokazuja w jaki sposob przypisac click event do przycisku.
+Mozna to zrobic za pomoca dyrektywy v-on:click oraz dyrektywy @click 
+nastepnie przypisujac im metode, np.  v-on:click="decrement"
+
+Dodatkowo, w przycisku reset pokazany jest przyklad jak warunkowo dodac atrybut disabled.
 -->
