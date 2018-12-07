@@ -9,6 +9,9 @@ new Vue({
   methods: {
     toUpperCase: function (val) {
       return val.toUpperCase();
+    },
+    bolder: function(val) {
+      return '<strong>' + val + '</strong>';
     }
   },
   computed: {
@@ -19,6 +22,6 @@ new Vue({
 });
 
 /*
-wlasciwosc computed dzial podobnie jak metoda.
-Roznica jest taka ze metoda re-renderuje cala strone, natomiast computed jedynie zmieniona czesc.
+Aby zwrocic do elementu DOM wartosc HTML znajdujaca sie w metodzie lub we wlasciwosci computed
+nalezy uzyc dyrektywy v-html (patrz plik index.html, tag h2)
 */
