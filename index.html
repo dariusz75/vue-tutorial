@@ -24,6 +24,11 @@
       <button type="button" class="btn btn-info" v-on:click="decrement">-</button>
       <button type="button" class="btn btn-info" @click="increment">+</button>
       <button type="button" class="btn btn-danger" @click="reset" :disabled="counter === 0">Reset</button>
+      <div class="alert alert-primary mt-5" role="alert" v-if="counter === 1">{{ counter }}</div>
+      <div class="alert alert-secondary mt-5" role="alert" v-if="counter === 2">{{ counter }}</div>
+      <div class="alert alert-success mt-5" role="alert" v-if="counter === 3">{{ counter }}</div>
+      <div class="alert alert-danger mt-5" role="alert" v-if="counter === 4">{{ counter }}</div>
+      <div class="alert alert-warning mt-5" role="alert" v-if="counter === 5">{{ counter }}</div>
     </div>
   </div>
 
@@ -42,9 +47,10 @@
 </html>
 
 <!--
-Powyzsze przyklady pokazuja w jaki sposob przypisac click event do przycisku.
-Mozna to zrobic za pomoca dyrektywy v-on:click oraz dyrektywy @click 
-nastepnie przypisujac im metode, np.  v-on:click="decrement"
-
-Dodatkowo, w przycisku reset pokazany jest przyklad jak warunkowo dodac atrybut disabled.
+Do pokazywania lub ukrywania elementow na stronie sluza nam dwie dyrektywy
+v-if oraz v-show
+W powyzszym przykladzie uzylismy dyrektywy v-if.
+Rozni sie ona od dyrektywy v-if tym ze fizycznie wstawia i usuwa elementy z modelu DOM.
+Oczywiscie w naszym przykladzie jedynie usuwa, poniewaz sa one w DOM a nie w template.
+Natomiast dyrektywa v-show dodaje do elementu css display: none
 -->
