@@ -21,3 +21,4 @@ new Vue({
 /*
 wlasciwosc computed dzial podobnie jak metoda.
 Roznica jest taka ze metoda re-renderuje cala strone, natomiast computed jedynie zmieniona czesc.
+*/
