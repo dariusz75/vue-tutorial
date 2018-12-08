@@ -30,7 +30,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users">
+          <tr v-for="(user, index) in users" @click="remove(index)">
             <th scope="row">{{ user.id }}</th>
             <td>{{ user.name }}</td>
             <td>{{ user.username }}</td>

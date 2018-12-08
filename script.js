@@ -37,14 +37,19 @@ new Vue({
     ]
   },
   methods: {
-    showTable: function () {
-
+    remove: function (index) {
+      this.users.splice(index, 1);
     }
   }
 });
 
 /*
+metoda remove to funkcja do ktorej przekazujemy argument w postaci numeru indexu urzytkownika
+przekazany z elementu row tabeli, podczas wykonywanie eventu click. 
+Patrz plik index.html
+<tr v-for="(user, index) in users" @click="remove(index)">
 
+Nastepnie funkcja metody remove wycina element tablicy users o podanym indexie.
 */
 
 
