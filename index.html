@@ -20,16 +20,21 @@
   <div class="container">
     <div id="app" v-cloak>
       <h1 class="text-center">{{ heading }}</h1>
-      <h2 class="text-center">{{ counter }}</h2>
-      <div class="text-center">
-        <button type="button" class="btn btn-primary" @click="increment" :disabled="inProgress">Increment Counter</button>
-        <button type="button" class="btn btn-primary" @click="decrement" :disabled="inProgress">Decement Counter</button>
-        <button type="button" class="btn btn-primary" @click="start" :disabled="inProgress">Count down</button>
-        <div class="alert alert-primary text-center mt-5" role="alert" v-show="!inProgress">Set up the counter or Start
-          counting down</div>
-      </div>
+      <form @submit.prevent="submitForm">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" class="form-control" id="first-name" ref="firstName">
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" class="form-control" id="last-name" ref="lastName">
+        </div>
+        <button type="submit" class="btn btn-primary" @click="submitForm">Submit</button>
+      </form>
+      <h3 class="mt-5">Your name: {{ fullName }}</h3>
     </div>
   </div>
+
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -46,5 +51,13 @@
 </html>
 
 <!--
+Veu pozwala przypisywac do dowolnego elementu atrybut ref z podana nazwa
+Najprostrzym sposobem pobrania wartosci z formularza jedt odwolanie sie do pol input poprzez
+nazwy podane w atrybutach ref, ktory powinne byc unikalne.
+Najpierw nalezy formie przypisac zdarzenie submit i okreslic co to zdarzenie bedzie wywolywac,
+nie zapominajac oczywiscie o prevent default.
+<form @submit.prevent="submitForm">
+W naszym przypadku submit po kliknieciu przycisku wywola metode submitForm
 
+Przejdz do pliku script.js
 -->

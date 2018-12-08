@@ -1,38 +1,21 @@
 new Vue({
   el: '#app',
   data: {
-    heading: 'Counter',
-    counter: 10,
-    inProgress: false
+    heading: 'Forms',
+    fullName: ''
   },
   methods: {
-    start: function () {
-      this.inProgress = true;
-      this.countdown();
-    },
-    increment: function () {
-      this.counter++;
-    },
-    decrement: function () {
-      if (this.counter > 0) {
-        this.counter--;
-      }
-    },
-    countdown: function () {
-      this.counter--;
-
-      if (this.counter > 0) {
-        setTimeout(this.countdown, 1000);
-      } else {
-        this.counter = 10;
-        this.inProgress = false;
-      }
+    submitForm: function (e) {
+      this.fullName = this.$refs.firstName.value + ' ' + this.$refs.lastName.value
     }
   }
 });
 
 /*
+Do zczytania wartosci pol input sluzy obiekt $refs wbudowany we Veu.
+Obiekt posiada wlasciwosci o nzawie naszych atrybutow ref
 
+Ta metoda nie jest rekomendowana poniewaz nie jest to two-way data binding
 */
 
 
