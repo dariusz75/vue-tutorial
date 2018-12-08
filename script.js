@@ -1,21 +1,28 @@
 new Vue({
   el: '#app',
   data: {
-    heading: 'Forms',
-    fullName: ''
+    heading: 'Forms with two-way data binding',
+    firstName: '',
+    lastName: '',
+    age: null
+  },
+  computed: {
+    fullName: function () {
+      return this.firstName + ' ' + this.lastName;
+    },
+    isFilled: function () {
+      return this.firstName && this.lastName && this.age >= 18;
+    }
   },
   methods: {
     submitForm: function (e) {
-      this.fullName = this.$refs.firstName.value + ' ' + this.$refs.lastName.value
+      console.log('Data sent: ' + this.fullName + ' ' + this.age);
     }
   }
 });
 
 /*
-Do zczytania wartosci pol input sluzy obiekt $refs wbudowany we Veu.
-Obiekt posiada wlasciwosci o nzawie naszych atrybutow ref
-
-Ta metoda nie jest rekomendowana poniewaz nie jest to two-way data binding
+https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
 */
 
 

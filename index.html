@@ -23,15 +23,19 @@
       <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" ref="firstName">
+          <input type="text" class="form-control" id="first-name" ref="firstName" v-model.trim.lazy="firstName">
         </div>
         <div class="form-group">
           <label for="last-name">Last Name</label>
-          <input type="text" class="form-control" id="last-name" ref="lastName">
+          <input type="text" class="form-control" id="last-name" ref="lastName" v-model.trim.lazy="lastName">
         </div>
-        <button type="submit" class="btn btn-primary" @click="submitForm">Submit</button>
+        <div class="form-group">
+          <label for="age">Age (must be 18+)</label>
+          <input type="text" class="form-control" id="age" ref="age" v-model.number="age">
+        </div>
+        <button type="submit" class="btn btn-primary" :disabled="!isFilled">Submit</button>
       </form>
-      <h3 class="mt-5">Your name: {{ fullName }}</h3>
+      <h3 class="mt-5">Full name: {{ fullName }}</h3>
     </div>
   </div>
 
@@ -51,13 +55,5 @@
 </html>
 
 <!--
-Veu pozwala przypisywac do dowolnego elementu atrybut ref z podana nazwa
-Najprostrzym sposobem pobrania wartosci z formularza jedt odwolanie sie do pol input poprzez
-nazwy podane w atrybutach ref, ktory powinne byc unikalne.
-Najpierw nalezy formie przypisac zdarzenie submit i okreslic co to zdarzenie bedzie wywolywac,
-nie zapominajac oczywiscie o prevent default.
-<form @submit.prevent="submitForm">
-W naszym przypadku submit po kliknieciu przycisku wywola metode submitForm
-
-Przejdz do pliku script.js
+https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
 -->
