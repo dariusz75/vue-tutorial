@@ -20,15 +20,25 @@
   <div class="container">
     <div id="app" v-cloak>
       <h1>{{ heading }}</h1>
-      <p>{{ paragraph }} {{ counter }}</p>
-      <button type="button" class="btn btn-info" v-on:click="decrement">-</button>
-      <button type="button" class="btn btn-info" @click="increment">+</button>
-      <button type="button" class="btn btn-danger" @click="reset" :disabled="counter === 0">Reset</button>
-      <div class="alert alert-primary mt-5" role="alert" v-if="counter === 1">{{ counter }}</div>
-      <div class="alert alert-secondary mt-5" role="alert" v-if="counter === 2">{{ counter }}</div>
-      <div class="alert alert-success mt-5" role="alert" v-if="counter === 3">{{ counter }}</div>
-      <div class="alert alert-danger mt-5" role="alert" v-if="counter === 4">{{ counter }}</div>
-      <div class="alert alert-warning mt-5" role="alert" v-if="counter === 5">{{ counter }}</div>
+      <table class="table mt-5" v-if="users.length">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in users">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-danger" role="alert" v-else>No data to display</div>
     </div>
   </div>
 
@@ -47,10 +57,5 @@
 </html>
 
 <!--
-Do pokazywania lub ukrywania elementow na stronie sluza nam dwie dyrektywy
-v-if oraz v-show
-W powyzszym przykladzie uzylismy dyrektywy v-if.
-Rozni sie ona od dyrektywy v-if tym ze fizycznie wstawia i usuwa elementy z modelu DOM.
-Oczywiscie w naszym przykladzie jedynie usuwa, poniewaz sa one w DOM a nie w template.
-Natomiast dyrektywa v-show dodaje do elementu css display: none
+Do wyswietlania danych z petli sluzy dyrektywa v-for pokazana na powyzszym przykladzie
 -->
