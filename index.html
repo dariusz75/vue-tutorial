@@ -20,14 +20,8 @@
   <div class="container">
     <div id="app" v-cloak>
       <h1 class="text-center">{{ heading }}</h1>
-      <h2 class="text-center">{{ counter }}</h2>
-      <div class="text-center">
-        <button type="button" class="btn btn-primary" @click="increment" :disabled="inProgress">Increment Counter</button>
-        <button type="button" class="btn btn-primary" @click="decrement" :disabled="inProgress">Decement Counter</button>
-        <button type="button" class="btn btn-primary" @click="start" :disabled="inProgress">Count down</button>
-        <div class="alert alert-primary text-center mt-5" role="alert" v-show="!inProgress">Set up the counter or Start
-          counting down</div>
-      </div>
+      <df-counter></df-counter>
+      <df-counter></df-counter>
     </div>
   </div>
 
@@ -46,5 +40,5 @@
 </html>
 
 <!--
-
+https://eduweb.pl/player/vuejs-od-podstaw/tworzenie-wlasnych-komponentow
 -->

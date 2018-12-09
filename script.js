@@ -1,9 +1,21 @@
-new Vue({
-  el: '#app',
-  data: {
-    heading: 'Counter',
-    counter: 10,
-    inProgress: false
+Vue.component('df-counter', {
+  template: `
+  <div>
+  <h2 class="text-center">{{ counter }}</h2>
+  <div class="text-center">
+    <button type="button" class="btn btn-primary" @click="increment" :disabled="inProgress">Increment Counter</button>
+    <button type="button" class="btn btn-primary" @click="decrement" :disabled="inProgress">Decement Counter</button>
+    <button type="button" class="btn btn-primary" @click="start" :disabled="inProgress">Count down</button>
+    <div class="alert alert-primary text-center mt-2" role="alert" v-show="!inProgress">Set up the counter or Start
+      counting down</div>
+  </div>
+  </div>
+  `,
+  data: function () {
+    return {
+      counter: 10,
+      inProgress: false
+    }
   },
   methods: {
     start: function () {
@@ -31,8 +43,15 @@ new Vue({
   }
 });
 
-/*
+new Vue({
+  el: '#app',
+  data: {
+    heading: 'Counter',
+  }
+});
 
+/*
+https://eduweb.pl/player/vuejs-od-podstaw/tworzenie-wlasnych-komponentow
 */
 
 
