@@ -1,4 +1,4 @@
-Vue.component('df-counter', {
+var Counter = {
   template: `
   <div>
   <h2 class="text-center">{{ counter }}</h2>
@@ -41,12 +41,15 @@ Vue.component('df-counter', {
       }
     }
   }
-});
+};
 
 new Vue({
   el: '#app',
   data: {
     heading: 'Counter',
+  },
+  components: {
+    'df-counter': Counter
   }
 });
 
