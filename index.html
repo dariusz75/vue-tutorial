@@ -23,17 +23,13 @@
       <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" ref="firstName" v-model.trim.lazy="firstName">
+          <input type="text" class="form-control" id="first-name" @input="firstName = $event.target.value" v.bind:value>
         </div>
         <div class="form-group">
           <label for="last-name">Last Name</label>
-          <input type="text" class="form-control" id="last-name" ref="lastName" v-model.trim.lazy="lastName">
+          <input type="text" class="form-control" id="last-name" @input="lastName = $event.target.value" v.bind:value>
         </div>
-        <div class="form-group">
-          <label for="age">Age (must be 18+)</label>
-          <input type="text" class="form-control" id="age" ref="age" v-model.number="age">
-        </div>
-        <button type="submit" class="btn btn-primary" :disabled="!isFilled">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <h3 class="mt-5">Full name: {{ fullName }}</h3>
     </div>
@@ -56,9 +52,11 @@
 
 <!--
 Aby odzwierciedlic wartosc pola imput w obiekcie data instancji new Veu 
-nalezy elementowi DOM nadac dyrektywe v-model, podajac nazwe wlasciwosci obiektu data w modelu, 
-np v-model="firstName".
+nalezy elementowi input przypisac atrybut @input
+nastepnie podac nazwe wlasciwosci obiektu do ktorej chcemy przekazac wartosc - @input="firstName
+a nastepnie pobrac wartosc pola input - @input="firstName = $event.target.value"
 
+Aby dane byly zbindowane dwukierunkowo nalezy uzyc dyrektywy v.bind:value
 
 https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
 -->
