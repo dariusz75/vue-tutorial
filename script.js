@@ -22,6 +22,7 @@ new Vue({
 });
 
 /*
+
 https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
 */
 
