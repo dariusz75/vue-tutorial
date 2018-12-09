@@ -23,11 +23,11 @@
       <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" @input="firstName = $event.target.value" v.bind:value>
+          <input type="text" class="form-control" id="first-name" @input="firstName = $event.target.value" v-model="firstName">
         </div>
         <div class="form-group">
           <label for="last-name">Last Name</label>
-          <input type="text" class="form-control" id="last-name" @input="lastName = $event.target.value" v.bind:value>
+          <input type="text" class="form-control" id="last-name" @input="lastName = $event.target.value" v-model="lastName">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -56,7 +56,8 @@ nalezy elementowi input przypisac atrybut @input
 nastepnie podac nazwe wlasciwosci obiektu do ktorej chcemy przekazac wartosc - @input="firstName
 a nastepnie pobrac wartosc pola input - @input="firstName = $event.target.value"
 
-Aby dane byly zbindowane dwukierunkowo nalezy uzyc dyrektywy v.bind:value
+Aby dane byly zbindowane dwukierunkowo nalezy uzyc dyrektywy v-model="firstName" 
+podajac nazwe odpowiednia wlasciwosci obiektu data
 
 https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
 -->
