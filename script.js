@@ -23,7 +23,7 @@ new Vue({
 
 /*
 
-https://eduweb.pl/player/vuejs-od-podstaw/dwukierunkowe-wiazanie-danych
+https://eduweb.pl/player/vuejs-od-podstaw/tworzenie-wlasnych-dyrektyw
 */
 
 
